@@ -1,14 +1,9 @@
-import Header from "@/components/header";
-import Link from "next/link";
-
 const Home = () => {
   return (
     <main>
-      <Header />
-      <p>
-        <Link href="/about">About</Link>
-      </p>
-      <p>🔥 Let&apos;s get started! 🔥</p>
+      <h1 style={{ color: "white", textAlign: "center" }}>
+        Time to get started!
+      </h1>
     </main>
   );
 };
