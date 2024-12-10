@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import MainHeader from "../components/main-header";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export default function RootLayout({
             ></path>
           </svg>
         </div>
-
+        <MainHeader />
         {children}
       </body>
     </html>
