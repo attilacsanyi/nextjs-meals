@@ -1,6 +1,7 @@
 import { Meal } from "@/components/meals/types";
 import { getMeal } from "@/lib/meals.mjs";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import classes from "./page.module.css";
 
 const MealPage = async ({
@@ -10,6 +11,10 @@ const MealPage = async ({
 }) => {
   const mealSlug = (await params).mealSlug;
   const meal = (await getMeal(mealSlug)) as Meal;
+
+  if (!meal) {
+    notFound();
+  }
 
   // Replace newlines with <br /> tags for HTML
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");
