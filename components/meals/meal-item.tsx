@@ -1,7 +1,7 @@
+import { Meal } from "@/lib/meals/meals-types";
 import Image from "next/image";
 import Link from "next/link";
 import classes from "./meal-item.module.css";
-import { Meal } from "./types";
 
 const MealItem = ({ title, slug, image, summary, creator }: Meal) => {
   return (

@@ -1,6 +1,6 @@
+import { Meal } from "@/lib/meals/meals-types";
 import MealItem from "./meal-item";
 import classes from "./meals-grid.module.css";
-import { Meal } from "./types";
 
 const MealsGrid = ({ meals }: { meals: Meal[] }) => {
   return (

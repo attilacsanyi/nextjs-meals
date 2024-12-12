@@ -1,5 +1,5 @@
-import { Meal } from "@/components/meals/types";
-import { getMeal } from "@/lib/meals.mjs";
+import { getMeal } from "@/lib/meals/meals-dao.mjs";
+import { Meal } from "@/lib/meals/meals-types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import classes from "./page.module.css";

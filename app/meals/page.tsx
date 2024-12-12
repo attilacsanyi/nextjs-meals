@@ -1,7 +1,7 @@
 import Loading from "@/components/loading/loading";
 import MealsGrid from "@/components/meals/meals-grid";
-import { Meal } from "@/components/meals/types";
-import { getMeals } from "@/lib/meals.mjs";
+import { getMeals } from "@/lib/meals/meals-dao.mjs";
+import { Meal } from "@/lib/meals/meals-types";
 import Link from "next/link";
 import { Suspense } from "react";
 import classes from "./page.module.css";
