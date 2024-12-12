@@ -14,9 +14,7 @@ const ImagePicker = ({ label, name }: { label: string; name: string }) => {
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // We allow only one file to be picked
     const file = event.target.files?.[0];
-    if (file) {
-      setPickedImage(URL.createObjectURL(file));
-    }
+    setPickedImage(file ? URL.createObjectURL(file) : null);
   };
 
   return (
@@ -39,6 +37,7 @@ const ImagePicker = ({ label, name }: { label: string; name: string }) => {
           id={name}
           name={name}
           onChange={handleImageChange}
+          required
           accept="image/png, image/jpeg"
           className={classes.input}
         />
