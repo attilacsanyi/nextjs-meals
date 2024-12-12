@@ -1,7 +1,8 @@
+import MealsGrid from "@/components/meals/meals-grid";
+import MealsLoading from "@/components/meals/meals-loading";
+import { Meal } from "@/components/meals/types";
 import { getMeals } from "@/lib/meals.mjs";
 import Link from "next/link";
-import MealsGrid from "../../components/meals/meals-grid";
-import { Meal } from "../../components/meals/types";
 import classes from "./page.module.css";
 
 const MealsPage = async () => {
