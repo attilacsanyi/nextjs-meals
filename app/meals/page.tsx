@@ -1,8 +1,12 @@
+import { getMeals } from "@/lib/meals.mjs";
 import Link from "next/link";
 import MealsGrid from "../../components/meals/meals-grid";
+import { Meal } from "../../components/meals/types";
 import classes from "./page.module.css";
 
-const MealsPage = () => {
+const MealsPage = async () => {
+  const meals = (await getMeals()) as Meal[];
+
   return (
     <>
       <header className={classes.header}>
@@ -19,7 +23,7 @@ const MealsPage = () => {
       </header>
 
       <main>
-        <MealsGrid meals={[]} />
+        <MealsGrid meals={meals} />
       </main>
     </>
   );
