@@ -1,5 +1,4 @@
-import { getMeal } from "@/lib/meals/meals-dao.mjs";
-import { Meal } from "@/lib/meals/meals-types";
+import { getMeal } from "@/lib/meals/meals-dao";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import classes from "./page.module.css";
@@ -7,10 +6,10 @@ import classes from "./page.module.css";
 const MealPage = async ({
   params,
 }: {
-  params: { mealSlug: Promise<string> };
+  params: Promise<{ mealSlug: string }>;
 }) => {
-  const mealSlug = (await params).mealSlug;
-  const meal = (await getMeal(mealSlug)) as Meal;
+  const { mealSlug } = await params;
+  const meal = await getMeal(mealSlug);
 
   if (!meal) {
     notFound();

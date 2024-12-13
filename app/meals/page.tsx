@@ -1,6 +1,6 @@
 import Loading from "@/components/loading/loading";
 import MealsGrid from "@/components/meals/meals-grid";
-import { getMeals } from "@/lib/meals/meals-dao.mjs";
+import { getMeals } from "@/lib/meals/meals-dao";
 import { Meal } from "@/lib/meals/meals-types";
 import Link from "next/link";
 import { Suspense } from "react";
