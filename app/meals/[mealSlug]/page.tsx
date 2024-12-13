@@ -1,7 +1,26 @@
 import { getMeal } from "@/lib/meals/meals-dao";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import classes from "./page.module.css";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ mealSlug: string }>;
+}): Promise<Metadata> => {
+  const { mealSlug } = await params;
+  const meal = await getMeal(mealSlug);
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+};
 
 const MealPage = async ({
   params,

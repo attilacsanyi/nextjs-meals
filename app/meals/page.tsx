@@ -6,6 +6,13 @@ import Link from "next/link";
 import { Suspense } from "react";
 import classes from "./page.module.css";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "All Meals",
+  description: "Browse all the meals shared by the community",
+};
+
 const Meals = async () => {
   const meals = (await getMeals()) as Meal[];
   return <MealsGrid meals={meals} />;
