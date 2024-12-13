@@ -1,9 +1,19 @@
+// TODO: we could have extracted the form section into a separate client side component so the rest of the header can be rendered on the server side
+"use client";
+
 import ImagePicker from "@/components/meals/image-picker";
 import MealsFormSubmit from "@/components/meals/meals-form-submit";
 import { shareMeal } from "@/lib/meals/meals-actions";
+import { useActionState } from "react";
 import classes from "./page.module.css";
 
 const ShareMealPage = () => {
+  const [state, formAction] = useActionState<{ message?: string }, FormData>(
+    shareMeal,
+    {
+      message: undefined,
+    }
+  );
   return (
     <>
       <header className={classes.header}>
@@ -13,7 +23,7 @@ const ShareMealPage = () => {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={classes.main}>
-        <form action={shareMeal} className={classes.form}>
+        <form action={formAction} className={classes.form}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
@@ -44,6 +54,7 @@ const ShareMealPage = () => {
 
           <ImagePicker label="Your Image" name="image" />
 
+          {state.message && <p className={classes.error}>{state.message}</p>}
           <p className={classes.actions}>
             <MealsFormSubmit />
           </p>

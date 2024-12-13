@@ -8,7 +8,10 @@ const isInvalid = (value: string) => !value || value.trim() === "";
 const isValidEmail = (email: string) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-export const shareMeal = async (formData: FormData) => {
+export const shareMeal = async (
+  prevState: { message?: string },
+  formData: FormData
+) => {
   const mealDto = {
     title: formData.get("title") as string,
     summary: formData.get("summary") as string,
@@ -29,7 +32,9 @@ export const shareMeal = async (formData: FormData) => {
     !mealDto.image ||
     mealDto.image.size === 0
   ) {
-    throw new Error("Invalid form data!");
+    return {
+      message: "Invalid user input!",
+    };
   }
 
   await createMeal(mealDto);
