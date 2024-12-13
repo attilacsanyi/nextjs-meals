@@ -1,6 +1,7 @@
 "use server";
 
 import { createMeal } from "@/lib/meals/meals-dao";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { MealDto } from "./meals-types";
 
@@ -39,5 +40,6 @@ export const shareMeal = async (
 
   await createMeal(mealDto);
 
+  revalidatePath("/meals" /* "layout" */);
   redirect("/meals");
 };
