@@ -50,16 +50,16 @@ Example project following the **Next.js 15 & React - The Complete Guide** based 
   - Google Fonts integration
   - Image slideshow component
 
-# Screenshots
+## Screenshots
 
-## Meal Home
+Meal Home
 
 <img src="public/readme/next-meals-home.png" width="500" alt="Next Meal Home" />
 
-## Meal Detail
+Meal Detail
 
 <img src="public/readme/next-meals-detail.png" width="500" alt="Next Meal Detail" />
 
-## Share Meal Page
+Share Meal Page
 
 <img src="public/readme/next-meals-share.png" width="500" alt="Next Meal Share" />
